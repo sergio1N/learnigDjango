@@ -15,7 +15,7 @@ def qryview(request):
 def menuItems(request,dish):
     items={
         'pasta':" no tenemos pasta pero si arroz",
-        'arroz':"El arroz esta salado",
+        'arroz':"El arroz esta salado pero demaciado salado",
         'propina':'dejenos propina'
     }
     
