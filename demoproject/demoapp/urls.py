@@ -6,5 +6,4 @@ urlpatterns = [
     path("", views.Con_estilos),  
     path('getuser/', views.qryview, name='qryview'),
     path("dishes/<str:dish>", views.menuItems),  
-    
 ]
