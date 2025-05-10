@@ -16,7 +16,7 @@ def menuItems(request,dish):
     items={
         'pasta':" no tenemos pasta pero si arroz",
         'arroz':"El arroz esta salado pero demaciado salado",
-        'propina':'dejenos propina'
+        'propina':'dejenos propina a su sanchas'
     }
     
     description=items.get(dish,'no hay papi')
