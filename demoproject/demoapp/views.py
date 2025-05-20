@@ -14,7 +14,7 @@ def qryview(request):
 # Prueba de platos:
 def menuItems(request,dish):
     items={
-        'pasta':" no tenemos pasta pero si arroz",
+        'pasta':" no tenemos pasta pero si arroz al a francesa",
         'arroz':"El arroz esta salado pero demaciado salado",
         'propina':'dejenos propina a su sanchas'
     }
