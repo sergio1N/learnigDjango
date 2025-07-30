@@ -1,4 +1,6 @@
 from django.http import HttpResponse ,HttpResponseNotFound
+from .forms import MiFormulario
+from django.shortcuts import render
 
 def home(request):
     return HttpResponse('solo somoa nada por que no somos nada <br> quiero cuca')
@@ -22,3 +24,17 @@ def menuItems(request,dish):
     description=items.get(dish,'no hay papi')
     
     return HttpResponse("<h2>{}: </h2>  <br> {}".format(dish,description) )
+
+def mostrar_formulario(request):
+    if request.method == 'POST':  # Cuando se envía el formulario
+        form = MiFormulario(request.POST)
+        if form.is_valid():
+            # Procesar datos (ej: guardar en BD)
+            nombre = form.cleaned_data['nombre']
+            return HttpResponse(f"¡Gracias {nombre}!")  # Respuesta después de enviar
+    else:
+        form = MiFormulario()  # Formulario vacío para GET
+    
+    return render(request, 'formulario.html', {'form': form})
+ 
+ 

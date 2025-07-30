@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi Formulario</title>
+</head>
+<body>
+    <h1>Formulario de contacto</h1>
+    
+    <form method="POST">  <!-- method="POST" es crucial -->
+        {% csrf_token %}  <!-- Token de seguridad REQUERIDO -->
+        
+        {{ form.as_p }}  <!-- Renderiza el formulario como párrafos -->
+        
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
