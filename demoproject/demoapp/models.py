@@ -8,4 +8,12 @@ class Menu(models.Model):
 
 
     def __str__(self):
-        return self.name  + ' - ' + self.cuisine + ' - $' + str(self.price)    
+        return self.name  + ' - ' + self.cuisine + ' - $' + str(self.price)  
+    
+
+    
+#Ejemplo de formulario con ingreo a la db    
+class Logger (models.Model):
+    first_name = models.CharField(max_length = 200)
+    last_name = models. CharField(max_length = 200)
+    time_log = models.TimeField(help_text="Enter the exact time!")   

@@ -1,5 +1,18 @@
 from django import forms
 from django.forms.widgets import NumberInput
+from .models import Logger
+
+
+class logForm(forms.ModelForm):
+    class Meta:
+        model=Logger
+        fields="__all__"
+        
+
+
+
+
+
 
 class MiFormulario(forms.Form):
     name=forms.CharField(label='Name', max_length=100)

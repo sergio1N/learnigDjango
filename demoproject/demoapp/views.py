@@ -1,6 +1,7 @@
 from django.http import HttpResponse ,HttpResponseNotFound
-from .forms import MiFormulario
+from .forms import MiFormulario,logForm
 from django.shortcuts import render
+
 
 def home(request):
     return HttpResponse('solo somoa nada por que no somos nada <br> quiero cuca')
@@ -38,3 +39,12 @@ def mostrar_formulario(request):
     return render(request, 'formulario.html', {'form': form})
  
  #esto es un prueba
+def  from_view(request):
+    form = logForm()
+    if request.method == 'POST':
+        form = logForm(request.POST)
+        if form.is_valid():
+            form.save()
+    context = {'form': form}
+    return render(request, 'formulario2.html', context)
+    
