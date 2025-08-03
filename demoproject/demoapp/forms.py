@@ -8,6 +8,9 @@ class logForm(forms.ModelForm):
         model=Logger
         fields="__all__"
         
+        
+        
+        
 
 
 

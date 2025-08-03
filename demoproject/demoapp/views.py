@@ -1,7 +1,7 @@
 from django.http import HttpResponse ,HttpResponseNotFound
 from .forms import MiFormulario,logForm
 from django.shortcuts import render
-
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     return HttpResponse('solo somoa nada por que no somos nada <br> quiero cuca')
@@ -26,6 +26,7 @@ def menuItems(request,dish):
     
     return HttpResponse("<h2>{}: </h2>  <br> {}".format(dish,description) )
 
+
 def mostrar_formulario(request):
     if request.method == 'POST':  # Cuando se envía el formulario
         form = MiFormulario(request.POST)
@@ -39,6 +40,7 @@ def mostrar_formulario(request):
     return render(request, 'formulario.html', {'form': form})
  
  #esto es un prueba
+
 def  from_view(request):
     form = logForm()
     if request.method == 'POST':
