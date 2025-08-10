@@ -1,10 +1,12 @@
 from django.http import HttpResponse ,HttpResponseNotFound
 from .forms import MiFormulario,logForm
+from django.template import loader  # que es esto?
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from . models import Menu
 
 def home(request):
-    return HttpResponse('solo somoa nada por que no somos nada <br> quiero cuca')
+    return HttpResponse('solo somoa nada por que no somos nada <br> ')
 
 def Con_estilos(request,vareta='coño madre'): 
     return HttpResponseNotFound(f"<h1>Welcome to {vareta}</h1>")
@@ -49,4 +51,14 @@ def  from_view(request):
             form.save()
     context = {'form': form}
     return render(request, 'formulario2.html', context)
-    
+   
+   
+def index(request, name):  
+    context={"name":name}  
+    return render(request, 'hello.html', context)  
+
+# practicas de templates
+def menu_by_id(request):
+    newmenu=Menu.objects.values('name','price')
+    new_menu_dict={'menu':newmenu}
+    return render(request,'menu.html',new_menu_dict)
